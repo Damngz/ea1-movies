@@ -17,4 +17,16 @@ public class MovieController {
     movies.add(new Movie(4, "Isla Siniestra", 2010, "Martin Scorsese", "Drama", "En los años 50, dos agentes federales investigan la desaparición de una paciente en un hospital psiquiátrico en una isla remota. A medida que profundizan en la investigación, descubren perturbadoras verdades sobre el lugar y se enfrentan a sus propios demonios internos."));
     movies.add(new Movie(5, "La Llegada", 2016, "Denis Villeneuve", "Ciencia ficción", "Cuando misteriosas naves extraterrestres comienzan a aparecer en la Tierra, la experta lingüista Louise Banks es reclutada por el ejército para comunicarse con los alienígenas y descifrar sus intenciones. A medida que trabaja para desentrañar el lenguaje de los visitantes, Louise se encuentra en una carrera contra el tiempo para evitar una potencial guerra global."));
   }
+
+  @GetMapping("/movies/{id}")
+  public Movie getMovieById(@PathVariable int id) {
+    for (Movie movie : movies) {
+      if (movie.getId() == id) {
+        return movie;
+      }
+    }
+
+    return null;
+  }
+  
 }
